@@ -4,7 +4,7 @@
 
 set -e
 if [ -z "$1" ] || [ -z "$2" ]
-  then echo "Usage: $0 [tty] [axport]
+  then echo "Usage: $0 [tty] [axport]"
   exit 1;
 fi
 
