@@ -1,0 +1,11 @@
+[Unit]
+Description=AX.25 KISS interface
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/ax25
+Type=forking
+ExecStart=/usr/sbin/axup ${DEV} ${AXPORT} ${HBAUD}
+
+[Install]
+WantedBy=default.target

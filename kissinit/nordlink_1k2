@@ -1,0 +1,6 @@
+#!/bin/bash
+printf "\eP 0\r"  # PPERSIST set to 0, best for APRS
+printf "\eT 25\r" # TXDelay 250ms
+printf "\eO 7\r"  # Max 7 frames in TNC memory
+printf "\e@K\r"   # Start KISS mode
+

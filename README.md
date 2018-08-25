@@ -1,5 +1,5 @@
 # ax25systemd
-Based on https://github.com/la5nta/pat/tree/master/share
+Losely based on https://github.com/la5nta/pat/tree/master/share
 
 ## Original License:
   The MIT License (MIT)

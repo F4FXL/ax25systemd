@@ -1,0 +1,20 @@
+# Configuration for AX.25 systemd unit file
+
+# The axport from /etc/ax25/axports to bring up.
+AXPORT=N0CALL
+
+# The AX.25 baudrate the TNC is configured for.
+# Make sure this matches the HBAUD setting of your TNC.
+# This is NOT the on-air baudrate, this is the serial baud-rate i.e. between computer and TNC
+HBAUD=9600
+
+# The TNC serial path.
+DEV=/dev/ttyUSB0
+
+# Initializing the TNC into KISS mode. Uncomment the line matching your TNC
+#
+# Line below is for TNC2 running Nordlink T7F ROM
+#TNC_INIT_CMD="/bin/stty -raw -parenb cs8 $HBAUD < $DEV && /usr/share/kissinit/nordlink_1k2 > $DEV && /bin/sleep 1"
+# 
+# Line below if for Alinco ej50u TNC, might also work for TMD710, THD7x etc (not tested yet)
+#TNC_INIT_CMD="/bin/stty -raw -parenb cs8 $HBAUD < $DEV && /usr/share/kissinit/ej50u > $DEV && /bin/sleep 1"
