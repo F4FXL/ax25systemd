@@ -7,6 +7,7 @@ install:
 	@/bin/cp -rf "axup" "/usr/sbin/"
 	@/bin/chmod +x "/usr/sbin/axup"
 	@/bin/cp "ax25.default" "/etc/default/ax25"
+	@/bin/mkdir "/usr/share/kissinit"
 	@/bin/cp "kissinit/nordlink_1k2" "/usr/share/kissinit/"
 	@/bin/chmod +x "/usr/share/kissinit/nordlink_1k2"
 	@/bin/cp "kissinit/ej50u" "/usr/share/kissinit/"
