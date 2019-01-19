@@ -1,8 +1,10 @@
 #makefile for ax25systemd
+.PHONY prerequisites:
 prerequisites:
 	@apt -y install ax25-tools ax25-apps
 
-install:
+.PHONY install:
+install: prerequisites
 	@/bin/cp -f "ax25.service" "/lib/systemd/system/"	
 	@/bin/cp -f "axup" "/usr/sbin/"
 	@/bin/chmod +x "/usr/sbin/axup"
@@ -18,6 +20,7 @@ install:
 	@echo " "
 	@echo "Installed. Edit /etc/default/ax25 and /etc/ax25/axports if needed. When done editing those files, run \"service ax25 start\" to start the service"
 
+.PHONY uninstall:
 uninstall:
 	@service ax25 stop
 	@systemctl disable ax25
