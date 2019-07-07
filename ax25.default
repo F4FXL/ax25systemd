@@ -8,6 +8,10 @@ AXPORT=N0CALL
 # This is NOT the on-air baudrate, this is the serial baud-rate i.e. between computer and TNC
 HBAUD=9600
 
+# IP Address and netmask, in CIDR notation e.g. 192.168.123.45/24 for 192.168.123.45 with netmask 255.255.255.0.
+# Leave empty if you do not need the AX interface to have an ip
+IPADDR=
+
 # The TNC serial path.
 DEV=/dev/ttyUSB0
 
