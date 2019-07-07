@@ -12,7 +12,7 @@ fi
 [ -z "$TNC_INIT_CMD" ] || eval "$TNC_INIT_CMD";
 
 /usr/sbin/kissattach $1 $2 -m 256
-if [ -z "$3" ]
+if [ -z "$3" ] then
   exit 0; #user does not require an ip, exit
 fi
 
