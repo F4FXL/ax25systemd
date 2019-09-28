@@ -5,8 +5,7 @@ After=network.target
 
 [Service]
 EnvironmentFile=/etc/default/ax25
-Type=onshot
-RemainAfterExit=yes
+Type=forking
 ExecStart=/usr/sbin/axup ${DEV} ${AXPORT} ${HBAUD} ${IPADDR}
 ExecStop=/usr/sbin/axdown ${AXPORT} ${MAINPID}
 
