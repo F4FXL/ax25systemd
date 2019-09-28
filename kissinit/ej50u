@@ -1,5 +1,5 @@
 #!/bin/bash
-printf "HBAUD 9600\n" # make sure HBAUD is set to 9600
+printf "HBAUD 1200\n" # make sure HBAUD is set to 9600
 printf "SOFTDCD ON\n" # enable software digital carrier detect. Allows us to work with squelch fully open
 printf "PACLEN 255\n" # Max frame length
 printf "MAXFRAME 7\n" # Max of 7 frames in TNC memory
