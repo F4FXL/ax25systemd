@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+# Clean up on ax25 down
+  /usr/sbin/kissparms -x -p $1

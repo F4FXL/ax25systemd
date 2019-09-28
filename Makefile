@@ -8,6 +8,8 @@ install: prerequisites
 	@/bin/cp -f "ax25.service" "/lib/systemd/system/"	
 	@/bin/cp -f "axup" "/usr/sbin/"
 	@/bin/chmod +x "/usr/sbin/axup"
+	@/bin/cp -f "axdown" "/usr/sbin"
+	@/bin/chmod +x "/usr/sbin/axdown"
 	@/bin/cp "ax25.default" "/etc/default/ax25"
 	@/bin/mkdir -p "/usr/share/kissinit"
 	@/bin/cp "kissinit/nordlink_1k2" "/usr/share/kissinit/"

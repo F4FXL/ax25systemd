@@ -7,6 +7,7 @@ After=network.target
 EnvironmentFile=/etc/default/ax25
 Type=forking
 ExecStart=/usr/sbin/axup ${DEV} ${AXPORT} ${HBAUD} ${IPADDR}
+ExecStop=/usr/sbin/axdown ${AXPORT}
 
 [Install]
 WantedBy=default.target

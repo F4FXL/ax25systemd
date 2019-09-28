@@ -10,12 +10,6 @@ fi
 
 # Init TNC (optional)
 if [ -n "$TNC_INIT_CMD" ]; then
-  /usr/sbin/kissattach $1 $2 #to be able to exit kiss we need the port to be up first
-  sleep 1
-  /usr/sbin/kissparms -p $2 -x #exit kiss mode
-  sleep 1
-  /usr/bin/pkill kissattach #ugly ...
-  sleep 1
   eval "$TNC_INIT_CMD"
 fi
 
@@ -43,7 +37,7 @@ elif [ "$3" -eq "1200" ]; then
   echo 100000   > /proc/sys/net/ax25/ax0/idle_timeout
   echo 5      > /proc/sys/net/ax25/ax0/maximum_retry_count
   echo 2      > /proc/sys/net/ax25/ax0/connect_mode
-#  echo 10000   > /proc/sys/net/ipv4/neigh/ax0/retrans_time_ms #crank ARP transmit time to 10s
+  echo 10000   > /proc/sys/net/ipv4/neigh/ax0/retrans_time_ms #crank ARP transmit time to 10s
 else
   echo "Invalid HBAUD $3"
   return 1;
