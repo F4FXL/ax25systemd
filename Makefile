@@ -5,7 +5,7 @@ prerequisites:
 
 .PHONY install:
 install: prerequisites
-	@/bin/cp -f "ax25.service" "/lib/systemd/system/"	
+	@/bin/cp -f "ax25.service" "/lib/systemd/system/"
 	@/bin/cp -f "axup" "/usr/sbin/"
 	@/bin/chmod +x "/usr/sbin/axup"
 	@/bin/cp -f "axdown" "/usr/sbin"
