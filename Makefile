@@ -29,6 +29,7 @@ uninstall:
 	@systemctl daemon-reload
 	@/bin/rm "/lib/systemd/system/ax25.service"
 	@/bin/rm "/usr/sbin/axup"
+	@/bin/rm "/usr/sbin/axdown"
 	@/bin/rm "/etc/default/ax25"
 	@/bin/rm -rf "/usr/share/kissinit/"
 	@echo " "
