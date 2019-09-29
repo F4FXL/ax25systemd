@@ -1,6 +1,9 @@
 # ax25systemd
 Losely based on https://github.com/la5nta/pat/tree/master/share
 
+## Know issues
+https://github.com/F4FXL/ax25systemd/issues/2
+
 ## Original License:
   The MIT License (MIT)
   
