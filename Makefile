@@ -5,9 +5,11 @@ prerequisites:
 
 .PHONY install:
 install: prerequisites
-	@/bin/cp -f "ax25.service" "/lib/systemd/system/"	
+	@/bin/cp -f "ax25.service" "/lib/systemd/system/"
 	@/bin/cp -f "axup" "/usr/sbin/"
 	@/bin/chmod +x "/usr/sbin/axup"
+	@/bin/cp -f "axdown" "/usr/sbin"
+	@/bin/chmod +x "/usr/sbin/axdown"
 	@/bin/cp "ax25.default" "/etc/default/ax25"
 	@/bin/mkdir -p "/usr/share/kissinit"
 	@/bin/cp "kissinit/nordlink_1k2" "/usr/share/kissinit/"
@@ -27,6 +29,7 @@ uninstall:
 	@systemctl daemon-reload
 	@/bin/rm "/lib/systemd/system/ax25.service"
 	@/bin/rm "/usr/sbin/axup"
+	@/bin/rm "/usr/sbin/axdown"
 	@/bin/rm "/etc/default/ax25"
 	@/bin/rm -rf "/usr/share/kissinit/"
 	@echo " "
