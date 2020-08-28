@@ -18,7 +18,7 @@ if [ "$3" -eq "9600" ]; then
   /usr/sbin/kissattach $1 $2
   /usr/sbin/kissparms -p $2 -t 100 -l 10 -s 12 -r 80 -f n
   echo 7      > /proc/sys/net/ax25/ax0/standard_window_size  # 2-7 (max frames)
-  echo 256    > /proc/sys/net/ax25/ax0/maximum_packet_length # 1-512 (paclen)
+  echo 255    > /proc/sys/net/ax25/ax0/maximum_packet_length # 1-512 (paclen)
   echo 3100   > /proc/sys/net/ax25/ax0/t1_timeout            # (Frack /1000 = seconds)
   echo 800    > /proc/sys/net/ax25/ax0/t2_timeout            # (RESPtime /1000 = seconds)
   echo 300000 > /proc/sys/net/ax25/ax0/t3_timeout            # (Check /1000 = seconds)
@@ -30,7 +30,7 @@ elif [ "$3" -eq "1200" ]; then
   /usr/sbin/kissattach $1 $2
   /usr/sbin/kissparms -p $2 -t 250 -l 10 -s 12 -r 80 -f n
   echo 7      > /proc/sys/net/ax25/ax0/standard_window_size
-  echo 128    > /proc/sys/net/ax25/ax0/maximum_packet_length
+  echo 255    > /proc/sys/net/ax25/ax0/maximum_packet_length
   echo 2000   > /proc/sys/net/ax25/ax0/t1_timeout
   echo 1000   > /proc/sys/net/ax25/ax0/t2_timeout
   echo 300000 > /proc/sys/net/ax25/ax0/t3_timeout
