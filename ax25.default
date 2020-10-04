@@ -22,7 +22,7 @@ DEV=/dev/ttyUSB0
 # Initializing the TNC into KISS mode. Uncomment the line matching your TNC
 #
 # Line below is for TNC2 running Nordlink T7F ROM
-#TNC_INIT_CMD="/bin/stty -cstopb -raw -parenb cs8 $SERIALSPEED < $DEV && /usr/share/kissinit/nordlink_1k2 > $DEV && /bin/sleep 1"
+#TNC_INIT_CMD="/bin/stty raw -cstopb -parenb cs8 $SERIALSPEED < $DEV && /usr/share/kissinit/nordlink_1k2 > $DEV && /bin/sleep 1"
 # 
 # Line below is for Alinco ej50u TNC, also works for TMD710, THD7x etc
-#TNC_INIT_CMD="/bin/stty -cstopb -raw -parenb cs8 $SERIALSPEED < $DEV && /usr/share/kissinit/ej50u > $DEV && /bin/sleep 1"
+#TNC_INIT_CMD="/bin/stty raw -cstopb -parenb cs8 $SERIALSPEED < $DEV && /usr/share/kissinit/ej50u > $DEV && /bin/sleep 1"
