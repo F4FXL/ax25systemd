@@ -28,8 +28,9 @@ if [ "$3" -eq "9600" ]; then
   echo 10000  > /proc/sys/net/ipv4/neigh/ax0/retrans_time_ms #crank ARP transmit time to 10s
 elif [ "$3" -eq "1200" ]; then
   /usr/sbin/kissattach -l $1 $2
-  /usr/sbin/kissparms -p $2 -t 250 -l 10 -s 0 -r 255 -f n
-  echo 7      > /proc/sys/net/ax25/ax0/standard_window_size
+  /usr/sbin/kissparms -p $2 -t 250 -l 10 -s 20 -r 80 -f n
+  echo 1      > /proc/sys/net/ax25/ax0/standard_window_size
+  echo 1      > /proc/sys/net/ax25/ax0/extended_window_size
   echo 255    > /proc/sys/net/ax25/ax0/maximum_packet_length
   echo 2000   > /proc/sys/net/ax25/ax0/t1_timeout
   echo 1000   > /proc/sys/net/ax25/ax0/t2_timeout
