@@ -1,10 +1,10 @@
 
 [Unit]
-Description=AX.25 KISS interface
+Description=AX.25 %I Interface
 After=network.target
 
 [Service]
-EnvironmentFile=/etc/default/ax25
+EnvironmentFile=/etc/ax25/interfaces.d/%i
 Type=forking
 ExecStart=/usr/sbin/axup ${DEV} ${AXPORT} ${HBAUD} ${IPADDR}
 ExecStop=/usr/sbin/axdown ${AXPORT} ${MAINPID}
