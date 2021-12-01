@@ -1,7 +1,7 @@
 # Configuration for AX.25 systemd unit file
 
 # The axport from /etc/ax25/axports to bring up.
-AXPORT=N0CALL
+AXPORT=NAMEOFPORTINAXPORTFILE
 
 # The AX.25 baudrate the TNC is configured for.
 # Make sure this matches the SERIAL setting of your TNC.
