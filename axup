@@ -2,9 +2,17 @@
 #
 # This script is written to help configure an axport
 
-set -e
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3"]
-  then echo "Usage: $0 [tty] [axport] [hbaud]"
+# Check if all mandatory variables are set
+if [ -z ${DEV+x} ]; then
+  echo "Device not set"
+  exit 1;
+fi
+if [ -z ${HBAUD+x} ]; then
+  echo "On air baud not set"
+  exit 1;
+fi
+if [ -z ${AXPORT+x} ]; then
+  echo "AXPort not set"
   exit 1;
 fi
 
@@ -15,7 +23,7 @@ fi
 
 
 if [ "$3" -eq "9600" ]; then
-  IFNAME=`/usr/sbin/kissattach -l $1 $2  | rev | cut -d ' ' -f '1' | rev | tail -n 1`
+  IFNAME=`/usr/sbin/kissattach $KISSATTACHPARAMS $DEV $AXPORT  | rev | cut -d ' ' -f '1' | rev | tail -n 1`
   /usr/sbin/kissparms -p $2 -t 100 -l 10 -s 0 -r 255 -f n
   echo 7      > /proc/sys/net/ax25/$IFNAME/standard_window_size  # 2-7 (max frames)
   echo 255    > /proc/sys/net/ax25/$IFNAME/maximum_packet_length # 1-512 (paclen)
@@ -27,7 +35,7 @@ if [ "$3" -eq "9600" ]; then
   echo 2      > /proc/sys/net/ax25/$IFNAME/connect_mode          # 0 = None, 1 = Network, 2 = All
   echo 10000  > /proc/sys/net/ipv4/neigh/$IFNAME/retrans_time_ms #crank ARP transmit time to 10s
 elif [ "$3" -eq "1200" ]; then
-  IFNAME=`/usr/sbin/kissattach -l $1 $2  | rev | cut -d ' ' -f '1' | rev | tail -n 1`
+  IFNAME=`/usr/sbin/kissattach -l $KISSATTACHPARAMS $DEV $AXPORT | rev | cut -d ' ' -f '1' | rev | tail -n 1`
   /usr/sbin/kissparms -p $2 -t 250 -l 10 -s 20 -r 80 -f n
   echo 1      > /proc/sys/net/ax25/$IFNAME/standard_window_size
   echo 1      > /proc/sys/net/ax25/$IFNAME/extended_window_size
@@ -40,13 +48,10 @@ elif [ "$3" -eq "1200" ]; then
   echo 2      > /proc/sys/net/ax25/$IFNAME/connect_mode
   echo 10000   > /proc/sys/net/ipv4/neigh/$IFNAME/retrans_time_ms #crank ARP transmit time to 10s
 else
-  echo "Invalid HBAUD $3"
+  echo "Invalid HBAUD $HBAUD"
   return 1;
 fi
 
-if [ -z "$4" ]
-  then exit 0; #user does not require an ip, exit
+if [ -n "$IPADDR" ]; then
+  /sbin/ip addr add $IPADDR dev $IFNAME
 fi
-
-/sbin/ip addr add $4 dev $IFNAME #should find a way to have interface name more dynamic
-
