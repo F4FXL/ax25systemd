@@ -35,7 +35,7 @@ if [ "$3" -eq "9600" ]; then
   echo 2      > /proc/sys/net/ax25/$IFNAME/connect_mode          # 0 = None, 1 = Network, 2 = All
   echo 10000  > /proc/sys/net/ipv4/neigh/$IFNAME/retrans_time_ms #crank ARP transmit time to 10s
 elif [ "$3" -eq "1200" ]; then
-  IFNAME=`/usr/sbin/kissattach -l $KISSATTACHPARAMS $DEV $AXPORT | rev | cut -d ' ' -f '1' | rev | tail -n 1`
+  IFNAME=`/usr/sbin/kissattach $KISSATTACHPARAMS $DEV $AXPORT | rev | cut -d ' ' -f '1' | rev | tail -n 1`
   /usr/sbin/kissparms -p $2 -t 250 -l 10 -s 20 -r 80 -f n
   echo 1      > /proc/sys/net/ax25/$IFNAME/standard_window_size
   echo 1      > /proc/sys/net/ax25/$IFNAME/extended_window_size
