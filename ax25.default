@@ -13,8 +13,8 @@ SERIALSPEED=9600
 HBAUD=1200
 
 # IP Address and netmask, in CIDR notation e.g. 192.168.123.45/24 for 192.168.123.45 with netmask 255.255.255.0.
-# Leave empty if you do not need the AX interface to have an ip
-IPADDR=
+# Leave commented if you do not need the AX interface to have an ip
+#IPADDR=
 
 # The TNC serial path.
 DEV=/dev/ttyUSB0
@@ -26,3 +26,6 @@ DEV=/dev/ttyUSB0
 # 
 # Line below is for Alinco ej50u TNC, also works for TMD710, THD7x etc
 #TNC_INIT_CMD="/bin/stty raw -cstopb -parenb cs8 $SERIALSPEED < $DEV && /usr/share/kissinit/ej50u > $DEV && /bin/sleep 1"
+
+# Additional params to be passed to kissattach
+#KISSATTACHPARAMS="-l -6"
